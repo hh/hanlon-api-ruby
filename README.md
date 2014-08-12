@@ -2,6 +2,8 @@
 
 A simple Ruby API client for the Hanlon RESTful API. 
 
+*Note: This is under serious development, so don't expect too much just yet.*
+
 ## Installation
 
 Add this line to your application's Gemfile:
