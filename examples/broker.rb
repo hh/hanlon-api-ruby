@@ -15,20 +15,19 @@ puts uuids.join(',')
 #broker = Hanlon::Api::Broker.find(uuid)
 #puts "#{broker.chef_server_url}"
 
-pbroker = Hanlon::Api::Broker.create({
-              :name => 'chef_broker',
-              :plugin => 'chef',
-              :description => 'Chef Broker',
-           }, {
-              :user_description => 'Install Chef',
-              :chef_server_url => 'http =>//10.0.9.2 =>8889',
-              :chef_version => '11.14.2',
-              :validation_key => '',
-              :validation_client_name => 'chef-validator',
-              :bootstrap_environment => '_default',
-              :install_sh_url => 'http =>//opscode.com/chef/install.sh',
-              :chef_client_path => 'chef-client',
-              :base_run_list => ''
-          })
+pbroker = Hanlon::Api::Broker::ChefMetal.create(
+         {
+             :name => 'my sweet broker2',
+             :plugin => 'chef_metal',
+             :description => 'Chef Metal Broker \m/',
+         }, {
+             :user_description => 'Install Chef',
+             :chef_server_url => 'http://foo.narf',
+             :chef_version => "1.2.3.4",
+             :client_key => 'pem',
+             :node_name => 'web000',
+             :install_sh_url => 'http://foo.narf/install.sh',
+             :chef_client_path => 'chef-client',
+         })
 
 puts pbroker.inspect

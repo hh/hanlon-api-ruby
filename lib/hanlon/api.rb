@@ -7,9 +7,11 @@ module Hanlon
   module Api
     autoload :Resource,          'hanlon/api/resource'
     autoload :Broker,            'hanlon/api/broker'
+    autoload :ChefMetalBroker,   'hanlon/api/broker/chef_metal'
     autoload :Image,             'hanlon/api/image'
     autoload :Model,             'hanlon/api/model'
     autoload :Policy,            'hanlon/api/policy'
+    require 'hanlon/api/broker/chef_metal'
 
     class << self
       attr_accessor :configuration
