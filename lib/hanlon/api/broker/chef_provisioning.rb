@@ -3,7 +3,7 @@ require 'hanlon/api/broker'
 module Hanlon
 module Api
 class Broker
-    class ChefMetal < Broker
+    class ChefProvisioning < Broker
 
       attr_accessor :chef_server_url,
                     :chef_version,
@@ -63,4 +63,3 @@ class Broker
 end
 end
 end
-

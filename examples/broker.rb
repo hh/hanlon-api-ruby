@@ -15,11 +15,11 @@ puts uuids.join(',')
 #broker = Hanlon::Api::Broker.find(uuid)
 #puts "#{broker.chef_server_url}"
 
-pbroker = Hanlon::Api::Broker::ChefMetal.create(
+pbroker = Hanlon::Api::Broker::ChefProvisioning.create(
          {
              :name => 'my sweet broker2',
-             :plugin => 'chef_metal',
-             :description => 'Chef Metal Broker \m/',
+             :plugin => 'chef_provisioning',
+             :description => 'Chef Provisioning Broker \m/',
          }, {
              :user_description => 'Install Chef',
              :chef_server_url => 'http://foo.narf',
