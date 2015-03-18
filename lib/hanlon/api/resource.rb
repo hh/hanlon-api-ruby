@@ -107,7 +107,7 @@ module Api
         opts["@#{k}"] = v
       }
       # Super gross...
-      opts[:req_metadata_hash] = self.metadata
+      #opts[:req_metadata_hash] = self.metadata
 
       response = client.post do |req|
         req.url "#{resource_path}"
