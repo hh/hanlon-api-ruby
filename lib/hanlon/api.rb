@@ -10,6 +10,7 @@ module Hanlon
     autoload :ChefMetalBroker,   'hanlon/api/broker/chef_metal'
     autoload :Image,             'hanlon/api/image'
     autoload :Model,             'hanlon/api/model'
+    autoload :ActiveModel,       'hanlon/api/active_model'
     autoload :Policy,            'hanlon/api/policy'
     require 'hanlon/api/broker/chef_metal'
 
