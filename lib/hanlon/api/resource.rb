@@ -97,8 +97,21 @@ module Api
     end
 
     def self.filter(key, value)
-      #/hanlon/api/v1/node?status=inactive
-      response = client.get "#{resource_path}/?#{key}=#{value}"
+      filter_keys = ['root_policy','label','filename']
+      unless filter_keys.include? key
+        #/hanlon/api/v1/node?status=inactive
+        return client.get "#{resource_path}/?#{key}=#{value}"
+      end
+
+      entities = []
+
+      self.list.each do |a_uuid|
+        entity = self.find(a_uuid)
+        if entity.send(key.to_sym) == value
+          entities << entity
+        end
+      end
+      entities
     end
 
     def self.create(opts = {}, classparams = {})
@@ -107,7 +120,7 @@ module Api
         opts["@#{k}"] = v
       }
       # Super gross...
-      #opts[:req_metadata_hash] = self.metadata
+      # opts[:req_metadata_hash] = self.metadata
 
       response = client.post do |req|
         req.url "#{resource_path}"

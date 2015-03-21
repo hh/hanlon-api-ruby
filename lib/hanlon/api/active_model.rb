@@ -41,19 +41,6 @@ module Api
       Api.api_client
     end
 
-    def self.filter(key, value)
-      filter_keys = ['root_policy','label']
-      return super(key,value) unless filter_keys.include? key
-      entities = []
-
-      #/hanlon/api/v1/node?status=inactive
-      self.list.each do |active_module_uuid|
-        am = self.find(active_module_uuid)
-        entities << am if am.root_policy = value
-      end
-      entities
-    end
-
     def self.resource_path
       'active_model'
     end
