@@ -1,6 +1,6 @@
 module Hanlon
 module Api
-  class Model < Resource
+  class Tag < Resource
     attr_accessor :uuid,
                   :version,
                   :classname,
@@ -15,8 +15,7 @@ module Api
                   :label,
                   :domainname,
                   :root_password,
-                  :counter,
-                  :cloud_config
+                  :counter
 
     def to_s
         "#{@name} - #{@label}"

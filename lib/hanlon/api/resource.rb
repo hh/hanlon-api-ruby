@@ -97,7 +97,7 @@ module Api
     end
 
     def self.filter(key, value)
-      filter_keys = ['root_policy','label','filename']
+      filter_keys = ['root_policy','label','filename','os_name','os_version']
       unless filter_keys.include? key
         #/hanlon/api/v1/node?status=inactive
         return client.get "#{resource_path}/?#{key}=#{value}"
