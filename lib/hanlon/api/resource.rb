@@ -71,6 +71,7 @@ module Api
       response = @client.put do |req|
         req.url "#{@resource_path}/#{id}"
         req.headers['Content-Type'] = 'application/json'
+        req.options.timeout = 300
         req.body = self.to_json
       end
       self.from_json(response.body)
@@ -97,7 +98,7 @@ module Api
     end
 
     def self.filter(key, value)
-      filter_keys = ['root_policy','label','filename','os_name','os_version']
+      filter_keys = ['root_policy','label','filename','os_name','os_version','name']
       unless filter_keys.include? key
         #/hanlon/api/v1/node?status=inactive
         return client.get "#{resource_path}/?#{key}=#{value}"
@@ -125,6 +126,7 @@ module Api
       response = client.post do |req|
         req.url "#{resource_path}"
         req.headers['Content-Type'] = 'application/json'
+        req.options.timeout = 300
         req.body = opts.to_json
       end
       new.from_json(response.body)

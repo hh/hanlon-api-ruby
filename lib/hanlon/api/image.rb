@@ -8,8 +8,12 @@ module Api
                   :hidden,
                   :filename,
                   :verification_hash,
+                  :initrd_hash,
+                  :kernel_hash,
                   :os_name,
-                  :os_version
+                  :os_version,
+                  :iso_version,
+                  :iso_build_time
 
     def to_s
         "#{uuid} #{os_name} #{os_version}"

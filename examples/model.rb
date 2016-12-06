@@ -1,7 +1,7 @@
 $:.unshift(File.dirname(__FILE__) + "/../lib")
 require 'hanlon/api'
 
-SERVER="http://10.0.9.1:8026/hanlon/api/v1"
+SERVER="http://1.1.1.11:8026/hanlon/api/v1"
 
 Hanlon::Api.configure do |config|
   config.api_url = "#{SERVER}"
